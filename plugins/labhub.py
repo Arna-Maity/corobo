@@ -110,7 +110,7 @@ class LabHub(DefaultConfigMixin, BotPlugin):
 
     @staticmethod
     def is_room_member(invitee, msg):
-        return invitee in msg.frm.room.occupants
+        return GitterRoomOccupant(username = invitee) in msg.frm.room.occupants
 
     # Ignore LineLengthBear, PycodestyleBear
     @re_botcmd(pattern=r'^(?:(?:welcome)|(?:inv)|(?:invite))\s+@?([\w-]+)(?:\s+(?:to)\s+(\w+))?$',
